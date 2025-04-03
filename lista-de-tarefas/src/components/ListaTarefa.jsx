@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from './ListaTarefa.module.css'
 
 function ListaTarefas(){
     const [tarefas, setTarefas] = useState([]);
@@ -16,7 +17,7 @@ function ListaTarefas(){
     };
 
     return (
-        <div>
+        <div className={style.ListaTarefa}>
             <h2> Lista de Tarefas </h2>
             <input 
                 type='text' 

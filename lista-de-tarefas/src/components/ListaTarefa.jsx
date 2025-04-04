@@ -19,21 +19,27 @@ function ListaTarefas(){
     return (
         <div className={style.ListaTarefa}>
             <h2> Lista de Tarefas </h2>
-            <input 
-                type='text' 
-                value={novaTarefa} 
-                onChange={(e) => setNovaTarefa(e.target.value)} 
-                placeholder="Digite uma nova tarefa." 
-            />    
-            <button onClick={adicionarTarefa}> Adicionar </button>
-            <ul>
-                {tarefas.map((tarefa, indice) => (
-                    <li key={indice}>
-                        {tarefa} <button onClick={() => 
-                            removerTarefa(indice)}> Remover </button>
-                    </li>
-                ))}
-            </ul>
+            <div className={style.InputContainer}>
+                <input 
+                    type='text' 
+                    value={novaTarefa} 
+                    onChange={(e) => setNovaTarefa(e.target.value)} 
+                    placeholder="Digite uma nova tarefa." 
+                />    
+                <button onClick={adicionarTarefa}> Adicionar </button>
+                </div>
+                <ul>
+                    {tarefas.map((tarefa, indice) => (
+                        <li key={indice} id={`tarefa-${indice}`}>
+                            {tarefa} 
+                            <div>
+                                <button onClick={() => removerTarefa(indice)}> Remover </button>
+                                <button onClick={ (e) => {
+                                    e.target.closest("li").classList.toggle(style.Concluida)}}> Concluida </button>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
         </div>
     );
 }

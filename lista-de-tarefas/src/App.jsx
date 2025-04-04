@@ -6,8 +6,10 @@ function App(){
 
   return(
     <>
-    <h1> Gerenciador de Tarefas </h1>
-    <ListaTarefas />
+    <div id="Cabecalho">
+      <h1> Gerenciador de Tarefas </h1>
+      <ListaTarefas />
+    </div>
     </>
   );
 }

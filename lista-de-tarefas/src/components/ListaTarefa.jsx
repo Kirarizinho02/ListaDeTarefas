@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocalStorage } from "usehooks-ts";
-import style from './ListaTarefa.module.css'
+import style from './ListaTarefa.module.css';
 
 function ListaTarefas(){
     const [tarefas, setTarefas] = useLocalStorage('tarefas', []);
@@ -55,7 +55,7 @@ function ListaTarefas(){
                             <strong>Título da tarefa:</strong> {tarefa.titulo}
                             <strong>Descrição da tarefa:</strong> {tarefa.descricao}
                         </div>
-                            <div className={style.Botoes}>
+                            <div className={style.Botoes} style={{borderLeft: "1px solid var(--cinza)"}}>
                                 <button onClick={() => removerTarefa(indice)}>Remover</button>
                                 <button onClick={() => {concluirTarefa(indice);}}>
                                     {tarefa.concluida ? 'Concluída' : 'Concluir'}

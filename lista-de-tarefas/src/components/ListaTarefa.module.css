@@ -9,15 +9,30 @@
     text-align: center;
     font-family: segoe ui;
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .InputContainer {
+    flex-direction: column;
     width: 33vw;
     display: flex; 
     justify-content: center; 
-    align-items: center; 
+    align-items: center;
     margin-top: 1rem; 
+}
+
+.Tarefas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.Tarefas textarea{
+    width: 100%;
+    border: 1px solid var(--verde-escuro);
+    border-radius: 5px;
 }
 
 .ListaTarefa input {
@@ -26,19 +41,21 @@
     font-size: 1rem;
     border: 1px solid var(--verde-escuro);
     border-radius: 5px;
-    text-align: center;
+    text-align: left;
 }
 
 .ListaTarefa button {
     width: auto; 
-    padding: 0.5rem 1rem;
     font-size: 1rem;
+    margin-top: 1.5rem;
+    height: 7rem;
     background-color: var(--azul-ciano);
     color: var(--cinza);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 1px 4px 6px rgba(255, 255, 255, 0.2);
 }
 
 .ListaTarefa button:hover {
@@ -58,7 +75,9 @@
 }
 
 .ListaTarefa li {
-    width: 31.5vw; 
+    transition: ease-in-out 0.3s;
+    width: 38.3vw;
+    margin-right: 20px;
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -66,23 +85,30 @@
     border: 1px solid var(--verde-escuro);
     border-radius: 5px;
     margin-top: 0.5rem; 
-    background-color: var(--bege);
+    background-color: var(--branco);
     color: var(--cinza);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.1rem;
     font-weight: 450;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
+    word-break: break-all;
+    white-space: pre-wrap;
     text-align: justify;
 }
 
-.ListaTarefa li div {
+.ListaTarefa .Botoes {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 1rem;
+}
+
+.ListaTarefa .TarefaTexto {
     display: flex;
     flex-direction: column; 
 }
 
 .ListaTarefa li button {
+    width: 6rem;
+    height: 3rem;
     background-color: var(--verde-escuro);
     color: var(--bege);
 }
@@ -92,9 +118,17 @@
 }
 
 .ListaTarefa .Concluida {
+    transition: ease-in-out 0.3s;
     background-color: var(--azul-ciano);
+    color: var(--cinza);
 }
 
-.ListaTarefa .Concluida {
-    background-color: var(--azul-ciano);
+.ListaTarefa .Concluida button {
+    background-color: var(--branco);
+    color: var(--cinza);
 }
+
+.ListaTarefa .Concluida button:hover {
+    background-color: #eb4848;
+}
+

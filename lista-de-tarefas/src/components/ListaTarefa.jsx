@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 import style from './ListaTarefa.module.css'
 
 function ListaTarefas(){
-    const [tarefas, setTarefas] = useState([]);
+    const [tarefas, setTarefas] = useLocalStorage('tarefas', []);
     const [novaTarefaDescricao, setNovaTarefaDescricao] = useState('');
     const [novaTarefa, setNovaTarefa] = useState('');
 
@@ -46,7 +47,7 @@ function ListaTarefas(){
                         </div>
                         <button onClick={adicionarTarefa}> Adicionar </button>
                     </div>
-                    <h2> Lista de Tarefas </h2>
+                    <h2 style={{opacity: tarefas.length > 0 ? 1 : 0, transition: "opacity 0.3s ease-in-out"}}> Lista de Tarefas </h2>
                     <ul>
                 {tarefas.map((tarefa, indice) => (
                     <li key={indice} id={`tarefa-${indice}`} className={tarefa.concluida ? style.Concluida : ""}>

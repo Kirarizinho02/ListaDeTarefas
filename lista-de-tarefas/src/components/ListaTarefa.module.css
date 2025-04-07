@@ -124,7 +124,8 @@
 .ListaTarefa li button {
     border-width: 0 !important;
     border-radius: 5px;
-    width: 6rem;
+    justify-content: space-around;
+    width: 7.5rem;
     height: 3rem;
     background-color: var(--verde-escuro);
     color: var(--bege);
@@ -154,4 +155,6 @@
 }
 
 /* Essas quatro classes e respectivos hovers servem para a adição de animações simples e cores diferentes durante o hover do mouse */
+
+
 

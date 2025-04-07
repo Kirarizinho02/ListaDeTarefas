@@ -10,6 +10,13 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 
 // Importando o CSS do Bootstrap, assim como o local storage de uma biblioteca externa
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
+
+// Importando os icones do FontAwesome, que são utilizados para os botões de remover e concluir tarefas
+
 function ListaTarefas() {
     const [tarefas, setTarefas] = useLocalStorage('tarefas', []);
     const [tarefasOriginais, setTarefasOriginais] = useState([]); 
@@ -51,8 +58,25 @@ function ListaTarefas() {
         setTarefas(novasTarefas);
         setTarefasOriginais(novasTarefas); 
     };
-
+    
 // Função simples que remove a tarefa do array de tarefas, que utiliza do filter para filtrar as tarefas que não são as que o usuário quer remover
+
+
+    const editarTarefa = (indice) => {
+        setTarefas(tarefas.map((tarefa, i) => {
+            if (i === indice) {
+                const titulo = prompt("Digite o novo título da tarefa:", tarefa.titulo);
+                const descricao = prompt("Digite a nova descrição da tarefa:", tarefa.descricao);
+                const updatedTarefa = { ...tarefa, titulo: titulo || tarefa.titulo, descricao: descricao || tarefa.descricao };
+                setTarefasOriginais(tarefas && updatedTarefa);
+                return updatedTarefa;
+            }
+            return tarefa;
+        }));
+    };
+
+// Função que edita a tarefa, utilizando o prompt para pedir o novo título e descrição da tarefa, e atualiza o array de tarefas com os novos valores, para não serem alterados caso sejam filtrados
+// O valor padrão do prompt é o título e descrição da tarefa, caso o usuário não digite nada, o valor padrão é mantido
 
     const ordenarOrdemAlfabetica = () => {
         const tarefasOrdenadas = [...tarefas].sort((a, b) =>
@@ -113,16 +137,19 @@ function ListaTarefas() {
                     <li key={indice} id={`tarefa-${indice}`} className={tarefa.concluida ? style.Concluida : ""}>
                         {/* Cada item da lista recebe um índice, e um estilo especial caso esteja concluida */}
                         <div className={style.TarefaTexto}>
-                            <strong>Título da tarefa:</strong> {tarefa.titulo}
-                            <strong>Descrição da tarefa:</strong> {tarefa.descricao}
+                            <strong>Título da tarefa:</strong> {tarefa.titulo} 
+                            <strong>Descrição da tarefa:</strong> {tarefa.descricao} 
                         </div>
-                        <div className={style.Botoes}>
-                            <button onClick={() => removerTarefa(indice)}>Remover</button>
-                            <button onClick={() => concluirTarefa(indice)}>
-                                {tarefa.concluida ? "Concluída" : "Concluir"}
+                        <div className={style.Botoes}>  
+
+                            <button onClick={() => removerTarefa(indice)}> <FontAwesomeIcon icon={faTrash} />  Remover</button>
+                            <button onClick={() => concluirTarefa(indice)}> <FontAwesomeIcon icon={faCheck} />
+                                {tarefa.concluida ? "  Concluída" : "  Concluir"}
                             </button>
+                            <button onClick={() => editarTarefa(indice)}> <FontAwesomeIcon icon={faPen} />  Editar </button>
                             {/* O botão de remover chama a função de remover tarefas passando o índice da tarefa clicada como parâmetro */}
                             {/* De forma semelhante, o botão de concluir faz as mesmas funções, mas para concluir a tarefa, e altera seu texto caso a tarefa esteja marcada como concluida */}
+                            {/* O botão de editar faz basicamente a mesma coisa dos dois de cima, mas com o propósito de editar a tarefa */}
                         </div>
                     </li>
                 ))}

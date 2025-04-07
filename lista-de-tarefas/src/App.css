@@ -6,8 +6,9 @@ h1 {
   background-color: var(--verde-escuro);
   border-radius: 10px;
   box-shadow: 1px 4px 6px rgba(255, 255, 255, 0.2); 
-  display: block;
 }
+
+/* Estilização básica do h1, com uma fonte padrão e uma sensação de profundidade adicionada pelo box-shadow */
 
 #Cabecalho {
   flex-direction: column;
@@ -17,5 +18,7 @@ h1 {
   top: 1rem;
   display: flex;
   margin-top: 5rem;
-  max-height: 100vh;
+  max-height: 90vh;
 }
+
+/* O Cabeçalho foi estilizado para não sair da página caso muitos itens sejam adicionados a lista pelo max-height */

@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    justify-content: center;
+} 
+
+/* Estilização do container principal, organizando os itens em forma de coluna */
 
 .ListaTarefa h2 {
     color: var(--azul-ciano);
@@ -12,28 +15,34 @@
     margin-top: 1rem;
 }
 
+/* Estilização padrão do h2 dentro da classe lista tarefa */
+
 .InputContainer {
     flex-direction: column;
-    width: 33vw;
+    width: 35vw;
     display: flex; 
     justify-content: center; 
     align-items: center;
     margin-top: 1rem; 
 }
 
+/* Estilização do container de input, organizando os itens em forma de coluna */
+
 .Tarefas {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
+
+/* Estilização do container de tarefas centralizando os itens */
 
 .Tarefas textarea{
     width: 100%;
     border: 1px solid var(--verde-escuro);
     border-radius: 5px;
 }
+
+/* Estilização do textarea, definindo a largura e o estilo da borda */
 
 .ListaTarefa input {
     width: 100%;
@@ -44,40 +53,38 @@
     text-align: left;
 }
 
+/* Estilização do input, definindo a largura, estilo da borda, tamanho da fonte */
+
 .ListaTarefa .BotaoLista {
     width: auto !important;
+    margin-right: 0rem !important;
     font-size: 1rem; 
     margin-top: 1.5rem !important;
     height: 7.5rem !important;    
     background-color: var(--azul-ciano);
     color: var(--cinza);
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 1px 4px 6px rgba(255, 255, 255, 0.2);
 }
 
+/* Estilização do botão de adicionar tarefa, definindo a largura, altura, cor de fundo, cor do texto, borda e sombra */
+/* É importante avisar que o uso do !important é para sobrescrever variáveis do Bootstrap */
+
 .ListaTarefa button:hover {
     background-color: #00d9ff; 
 }
 
-.ListaTarefa ul {
-    list-style: none;
-    width: 90%;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    color: var(--bege);
-    align-items: center; 
+.ListaTarefa ul{
+    padding-left: 0 !important;
 }
+
+/* Estilização da lista de tarefas, removendo o padding padrão do Bootstrap */
 
 .ListaTarefa li {
     transition: ease-in-out 0.3s;
-    width: 38.3vw;
-    margin-right: 20px;
+    width: 40vw;
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -95,6 +102,8 @@
     text-align: justify;
 }
 
+/* Estilização da lista de tarefas, definindo a largura, altura, cor de fundo, cor do texto, borda, tamanho da fonte, peso da fonte */
+
 .ListaTarefa .Botoes {
     display: flex;
     flex-direction: column; 
@@ -110,6 +119,8 @@
     flex-direction: column; 
 }
 
+/* Essas três classes servem para a organização dos componentes nas divs, mas não tem estilizações além do display:flex e direções */
+
 .ListaTarefa li button {
     border-width: 0 !important;
     border-radius: 5px;
@@ -119,8 +130,11 @@
     color: var(--bege);
 }
 
+/* Estilização do botão de remoção de tarefa e conclusão de tarefa */ 
+
 .ListaTarefa li button:hover {
     background-color: var(--verde-claro); 
+    transition: ease-in-out 0.2s;
 }
 
 .ListaTarefa .Concluida {
@@ -135,6 +149,9 @@
 }
 
 .ListaTarefa .Concluida button:hover {
+    transition: ease-in-out 0.2s;
     background-color: #eb4848;
 }
+
+/* Essas quatro classes e respectivos hovers servem para a adição de animações simples e cores diferentes durante o hover do mouse */
 

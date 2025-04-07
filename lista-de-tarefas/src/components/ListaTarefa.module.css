@@ -44,11 +44,11 @@
     text-align: left;
 }
 
-.ListaTarefa button {
-    width: auto; 
-    font-size: 1rem;
-    margin-top: 1.5rem;
-    height: 7rem;
+.ListaTarefa .BotaoLista {
+    width: auto !important;
+    font-size: 1rem; 
+    margin-top: 1.5rem !important;
+    height: 7.5rem !important;    
     background-color: var(--azul-ciano);
     color: var(--cinza);
     border: none;
@@ -98,7 +98,11 @@
 .ListaTarefa .Botoes {
     display: flex;
     flex-direction: column; 
-    margin-bottom: 1rem;
+}
+
+.ListaTarefa .DropdownH2 {
+    display: flex;
+    flex-direction: row;
 }
 
 .ListaTarefa .TarefaTexto {
@@ -107,6 +111,8 @@
 }
 
 .ListaTarefa li button {
+    border-width: 0 !important;
+    border-radius: 5px;
     width: 6rem;
     height: 3rem;
     background-color: var(--verde-escuro);

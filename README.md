@@ -33,3 +33,7 @@ Para rodar o projeto:
 3. Digite o comando `npm i` e então `npm run dev`.
 
 ## Vídeo Demo
+Assita aqui o [vídeo demo](https://youtu.be/RAuyVvPileI)!
+
+> [!IMPORTANT]
+> Usei no vídeo títulos de tarefas no formato "[letra] - Tarefa [i]" apenas como uma forma de deixar os testes mais claros, mas o título da tarefa pode ser qualquer um! — Isto é, desde que não seja nulo.
